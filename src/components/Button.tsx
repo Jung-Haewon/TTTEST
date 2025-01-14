@@ -3,7 +3,7 @@ import { MouseEvent } from 'react';
 
 interface MotionButton {
   children: string;
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 function MotionButton({ children, onClick }: MotionButton) {

@@ -1,6 +1,9 @@
 import NavMenu from '@/components/NavMenu';
+import { logout } from '@/store/AuthSlice';
+import { RootState } from '@/store/Store';
 import { motion } from 'motion/react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 
 function getRandomColor() {
@@ -13,8 +16,19 @@ function getRandomColor() {
 }
 
 function Layout() {
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
   const [color, setColor] = useState('#000000');
   const [intervalId, setIntervalId] = useState<number | null>(null);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
+  const log = () => {
+    console.log('로그아웃');
+  };
+
   const startColorChange = () => {
     const id = window.setInterval(() => {
       setColor(getRandomColor());
@@ -45,7 +59,11 @@ function Layout() {
               </Link>
             </motion.button>
             <ul className="absolute right-4 -translate-y-1/2 top-1/2">
-              <NavMenu path={'/login'}>로그인</NavMenu>
+              {isLoggedIn ? (
+                <motion.button onClick={log}>로그아웃</motion.button>
+              ) : (
+                <NavMenu path={'/login'}>로그인</NavMenu>
+              )}
             </ul>
           </nav>
         </header>

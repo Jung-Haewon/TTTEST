@@ -12,10 +12,11 @@ function Login({ title }: { title: string }) {
   const login = async () => {
     if (idInput.current && pwInput.current) {
       try {
-        const response = await axios.post(`http://192.168.1.204:8080/login`, {
-          username: idInput.current.value,
-          password: pwInput.current.value,
-        });
+        const formData = new FormData();
+        formData.append('username', idInput.current.value);
+        formData.append('password', pwInput.current.value);
+
+        const response = await axios.post(`http://192.168.1.204:8080/login`, formData);
         console.log(response);
       } catch (err) {
         console.log(err);

@@ -1,11 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
+// store/store.ts
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from '@/store/AuthSlice';
 
 const store = configureStore({
   reducer: {
-    // 리듀서를 여기에 추가
+    auth: authReducer,
   },
 });
 
-export default store;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export default store;
