@@ -1,0 +1,110 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Pretendard Variable', 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+/* Font Styles */
+.display {
+  @apply font-semibold;
+  font-size: 4.25rem; /* 68px */
+  line-height: 5.75rem; /* 92px */
+}
+.large-title {
+  @apply font-semibold;
+  font-size: 2.5rem; /* 40px */
+  line-height: 3.25rem; /* 52px */
+}
+.title-1 {
+  @apply font-semibold;
+  font-size: 2rem; /* 32px */
+  line-height: 2.5rem; /* 40px */
+}
+.title-2 {
+  @apply font-semibold;
+  font-size: 1.75rem; /* 28px */
+  line-height: 2.25rem; /* 36px */
+}
+.title-2-stronger {
+  @apply font-bold;
+  font-size: 1.75rem; /* 28px */
+  line-height: 2.25rem; /* 36px */
+}
+.title-3 {
+  @apply font-semibold;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+}
+.title-3-stronger {
+  @apply font-bold;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+}
+.subtitle-1 {
+  @apply font-semibold;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.625rem; /* 26px */
+}
+.subtitle-2 {
+  @apply font-semibold;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.5rem; /* 24px */
+}
+.subtitle-2-stronger {
+  @apply font-bold;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.5rem; /* 24px */
+}
+.body-1 {
+  @apply font-normal;
+  font-size: 1rem; /* 16px */
+  line-height: 1.375rem; /* 22px */
+}
+.body-1-stronger {
+  @apply font-bold;
+  font-size: 1rem; /* 16px */
+  line-height: 1.375rem; /* 22px */
+}
+.body-2 {
+  @apply font-normal;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+.body-2-strong {
+  @apply font-semibold;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+.caption-1 {
+  @apply font-normal;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+.caption-1-strong {
+  @apply font-semibold;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+.caption-1-stronger {
+  @apply font-bold;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+.caption-2 {
+  @apply font-normal;
+  font-size: 0.625rem; /* 10px */
+  line-height: 0.875rem; /* 14px */
+}
+.caption-2-strong {
+  @apply font-semibold;
+  font-size: 0.625rem; /* 10px */
+  line-height: 0.875rem; /* 14px */
+}

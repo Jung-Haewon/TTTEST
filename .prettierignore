@@ -1,0 +1,33 @@
+# Node modules 디렉토리 무시
+node_modules/
+
+# 빌드 결과물 디렉토리 무시
+build/
+dist/
+
+# 환경 설정 파일 무시
+.env
+.env.local
+.env.*.local
+
+# 로그 파일 무시
+logs/
+*.log
+
+# 임시 파일 및 디렉토리 무시
+temp/
+tmp/
+*.tmp
+*.temp
+
+# 프로젝트 루트의 특정 파일 무시
+package-lock.json
+
+# IDE 설정 파일 및 디렉토리 무시
+.vscode/
+.idea/
+
+# 기타 무시할 파일 및 디렉토리
+coverage/
+.DS_Store
+Thumbs.db
