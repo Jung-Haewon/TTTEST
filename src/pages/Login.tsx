@@ -18,6 +18,7 @@ function Login({ title }: { title: string }) {
 
         const response = await axios.post(`http://localhost:8080/login`, formData);
         console.log(response);
+        window.location.href = '/';
       } catch (err) {
         console.log(err);
       }

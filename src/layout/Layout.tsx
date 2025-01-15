@@ -19,6 +19,7 @@ function Layout() {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
   const [color, setColor] = useState('#000000');
+  const [textColor, setTextColor] = useState('#ffffff');
   const [intervalId, setIntervalId] = useState<number | null>(null);
 
   const handleLogout = () => {
@@ -52,10 +53,11 @@ function Layout() {
               whileHover={{ scale: 1.2 }}
               onMouseEnter={startColorChange}
               onMouseLeave={stopColorChange}
-              style={{ color: color, transition: 'color 0.2s ease-in-out' }}
+              style={{ backgroundColor:color, color: textColor, transition: 'color 0.2s ease-in-out' }}
+              className="rounded-2xl"
             >
               <Link to={'/'} className="flex p-8 text-4xl font-bold">
-                TEST
+                Warhammer 40k
               </Link>
             </motion.button>
             <ul className="absolute right-4 -translate-y-1/2 top-1/2">
