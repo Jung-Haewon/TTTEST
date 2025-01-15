@@ -1,9 +1,11 @@
 //로그인
 
-import MotionButton from '@/components/Button';
+import MotionButton from '@/components/MotionButton';
 import InputWithLabel from '@/components/InputWithLabel';
 import axios from 'axios';
 import { useRef } from 'react';
+import Cookies from 'js-cookie';
+import toast from 'react-hot-toast';
 
 function Login({ title }: { title: string }) {
   const idInput = useRef<HTMLInputElement>(null);
@@ -17,9 +19,29 @@ function Login({ title }: { title: string }) {
         formData.append('password', pwInput.current.value);
 
         const response = await axios.post(`http://localhost:8080/login`, formData);
-        console.log(response);
-        window.location.href = '/';
+
+        const responseHeader = response.headers.Authorization;
+        if (responseHeader) {
+          const token = responseHeader.split(' ')[1];
+
+          if (token) {
+            Cookies.set('token', token, {
+              expires: 1,
+              secure: true,
+              sameSite: 'strict',
+            });
+            console.log('JWT 쿠키 저장 완료');
+
+            toast.success('로그인에 성공했습니다.');
+
+            // 히스토리 교체 및 페이지 리디렉션
+            window.history.replaceState(null, '', '/');
+            window.location.href = '/';
+          }
+        }
       } catch (err) {
+        toast.error('로그인에 실패했습니다.');
+
         console.log(err);
       }
     }
