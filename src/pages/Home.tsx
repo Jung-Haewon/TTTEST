@@ -3,6 +3,7 @@
 import MotionButton from '@/components/MotionButton';
 import { logout } from '@/store/AuthSlice';
 import { RootState } from '@/store/Store';
+import PostType from '@/types/PostType';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
@@ -12,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function Home({ title }: { title: string }) {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
-  const [postList, setPostList] = useState(null);
+  const [postList, setPostList] = useState<null | PostType[]>(null);
 
   const checkLogin = async () => {
     try {
@@ -57,12 +58,18 @@ function Home({ title }: { title: string }) {
     }
   };
 
+  const handleListClick = (id: number) => {
+    window.location.href = `/detail/${id}`;
+  };
+
+  const handleCreateButton = () => {
+    window.location.href = '/create';
+  };
+
   useEffect(() => {
     const getPostList = async () => {
       try {
         const response = await axios.get('http://localhost:8080/api/getallpost');
-
-        console.log(response.data);
 
         setPostList(response.data);
       } catch (err) {
@@ -76,15 +83,40 @@ function Home({ title }: { title: string }) {
   return (
     <>
       <title>{title}</title>
-      <section className="flex flex-col justify-start items-center gap-10 mt-10 w-full h-full">
+      <section className="flex flex-col justify-start items-center gap-10 mt-10 w-full h-auto">
         <h1 className="text-4xl">홈 입니다.</h1>
-        <MotionButton onClick={checkLogin} size={500}>
-          로그인 확인하기
-        </MotionButton>
-        <MotionButton onClick={checkConnect}>접속 테스트</MotionButton>
+        <div className="flex flex-row gap-[50px]">
+          <MotionButton onClick={checkLogin} size={1}>
+            로그인 확인하기
+          </MotionButton>
+          <MotionButton onClick={checkConnect} size={1}>
+            접속 테스트
+          </MotionButton>
+        </div>
       </section>
-      <section>
-        <h1></h1>
+      <section className="h-full mt-[80px]">
+        <div className="flex flex-row justify-between">
+          <h1 className="text-3xl font-bold">게시글 리스트</h1>
+          <MotionButton onClick={handleCreateButton} size={1}>
+            게시글 작성하기
+          </MotionButton>
+        </div>
+        {postList && postList.length ? (
+          <div className="flex flex-row w-full h-[200px] justify-center items-center">
+            <ol>
+              {postList.map((post) => (
+                <li key={post.id} onClick={() => handleListClick(post.id)}>
+                  <h3>{post.postTitle}</h3>
+                  <p>{post.date.slice(0, 10)}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ) : (
+          <div className="flex flex-row w-full h-[200px] justify-center items-center">
+            <h2>게시글이 존재하지 않습니다.</h2>
+          </div>
+        )}
       </section>
     </>
   );

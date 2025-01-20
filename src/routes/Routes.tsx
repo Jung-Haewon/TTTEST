@@ -1,7 +1,9 @@
 import Home from '@/pages/Home';
 import Join from '@/pages/Join';
 import Login from '@/pages/Login';
+import Detail from '@/pages/Detail';
 import RouteType from '@/types/RouteType';
+import Create from '@/pages/Create';
 
 // 라우터 목록
 const MyRoutes: RouteType[] = [
@@ -27,13 +29,13 @@ const MyRoutes: RouteType[] = [
   {
     path: '/detail/:id',
     meta: { title: 'Detail' },
-    component: Join,
+    component: Detail,
   },
   // 게시글 작성,
   {
     path: '/create',
     meta: { title: 'Create' },
-    component: Join,
+    component: Create,
   },
   // 게시글 수정,
   {
