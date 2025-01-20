@@ -15,7 +15,7 @@ function Create({ title }: { title: string }) {
     try {
       const token = Cookies.get('token');
 
-      if (!userName) {
+      if (!token) {
         toast.error('로그인 해주세요.');
         return;
       }
