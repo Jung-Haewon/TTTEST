@@ -44,11 +44,18 @@ function Create({ title }: { title: string }) {
         return `${year}:${month}:${day}:${hours}:${minutes}:${seconds}`;
       };
 
+      const postTitle = titleInput.current?.value;
+      const postBody = bodyInput.current?.value;
+      const writer = decodedJWT.username;
+      const date = formatDate(new Date());
+
+      console.log({ postTitle, postBody, writer, date });
+
       const createResponse = await axios.post('http://localhost:8080/api/createpost', {
-        postTitle: titleInput.current?.value,
-        postBody: bodyInput.current?.value,
-        writer: decodedJWT.username,
-        date: formatDate(new Date()),
+        postTitle,
+        postBody,
+        writer,
+        date,
       });
 
       if (createResponse.data === 'create post') {
