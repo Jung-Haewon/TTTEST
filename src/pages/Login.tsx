@@ -20,7 +20,7 @@ function Login({ title }: { title: string }) {
 
         const response = await axios.post(`http://localhost:8080/login`, formData);
 
-        const responseHeader = response.headers.Authorization;
+        const responseHeader = response.headers.authorization;
         if (responseHeader) {
           const token = responseHeader.split(' ')[1];
 

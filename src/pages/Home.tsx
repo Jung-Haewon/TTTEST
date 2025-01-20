@@ -14,7 +14,7 @@ function Home({ title }: { title: string }) {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/checkLogin', {
+      const response = await axios.get('http://localhost:8080/admin', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
