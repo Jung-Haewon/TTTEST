@@ -23,6 +23,24 @@ const MyRoutes: RouteType[] = [
     meta: { title: 'Join' },
     component: Join,
   },
+  // 게시글 조회,
+  {
+    path: '/detail/:id',
+    meta: { title: 'Detail' },
+    component: Join,
+  },
+  // 게시글 작성,
+  {
+    path: '/create',
+    meta: { title: 'Create' },
+    component: Join,
+  },
+  // 게시글 수정,
+  {
+    path: '/edit/:id',
+    meta: { title: 'Edit' },
+    component: Join,
+  },
 ];
 
 export default MyRoutes;

@@ -19,7 +19,7 @@ function Join({ title }: { title: string }) {
           formData.append('username', idInput.current.value);
           formData.append('password', pwInput.current.value);
 
-          const response = await axios.post(`http://localhost:8080/join`, formData);
+          const response = await axios.post(`http://localhost:8080/api/join`, formData);
 
           if (response.data === 'exist') {
             toast.error('이미 존재하는 아이디 입니다.');
