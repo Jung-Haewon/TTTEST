@@ -15,7 +15,7 @@ function Detail({ title }: { title: string }) {
   useEffect(() => {
     const getPostDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/getpost/${postId}`);
+        const response = await axios.get(`http://54.234.229.182:8080/api/getpost/${postId}`);
 
         console.log(response);
       } catch (err) {

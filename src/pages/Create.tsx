@@ -51,7 +51,7 @@ function Create({ title }: { title: string }) {
 
       console.log({ postTitle, postBody, writer, date });
 
-      const createResponse = await axios.post('http://localhost:8080/api/createpost', {
+      const createResponse = await axios.post('http://54.234.229.182:8080/api/createpost', {
         postTitle,
         postBody,
         writer,
