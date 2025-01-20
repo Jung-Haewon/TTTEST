@@ -23,7 +23,7 @@ function Home({ title }: { title: string }) {
         return;
       }
 
-      const response = await axios.get('http://127.0.0.1:8080/api/admin', {
+      const response = await axios.get('http://54.234.229.182:8080/api/admin', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +47,7 @@ function Home({ title }: { title: string }) {
 
   const checkConnect = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8080/api/test`);
+      const response = await axios.get(`http://54.234.229.182:8080/api/test`);
 
       if (response.data) {
         toast.success('서버에 접근 가능합니다.');
@@ -69,7 +69,7 @@ function Home({ title }: { title: string }) {
   useEffect(() => {
     const getPostList = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8080/api/getallpost');
+        const response = await axios.get('http://54.234.229.182:8080/api/getallpost');
 
         setPostList(response.data);
       } catch (err) {
