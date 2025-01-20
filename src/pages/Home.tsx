@@ -107,7 +107,6 @@ function Home({ title }: { title: string }) {
               {postList.map((post) => (
                 <li key={post.id} onClick={() => handleListClick(post.id)}>
                   <h3>{post.postTitle}</h3>
-                  <p>{post.date.slice(0, 10)}</p>
                 </li>
               ))}
             </ol>
