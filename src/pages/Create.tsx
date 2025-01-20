@@ -56,6 +56,11 @@ function Create({ title }: { title: string }) {
         postBody,
         writer,
         date,
+      },
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       });
 
       if (createResponse.data === 'create post') {
