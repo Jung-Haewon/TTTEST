@@ -28,7 +28,7 @@ function Layout() {
   useEffect(() => {
     const savedToken = Cookies.get('token');
     if (!savedToken) {
-      Cookies.set('token', '', { expires: 1, secure: true, sameSite: 'strict' });
+      Cookies.set('token', '', { expires: 1, secure: false, sameSite: 'strict' });
       dispatch(logout());
     } else {
       setToken(savedToken);

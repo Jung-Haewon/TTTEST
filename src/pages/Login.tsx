@@ -27,7 +27,7 @@ function Login({ title }: { title: string }) {
           if (token) {
             Cookies.set('token', token, {
               expires: 1,
-              secure: true,
+              secure: false,
               sameSite: 'strict',
             });
             console.log('JWT 쿠키 저장 완료');

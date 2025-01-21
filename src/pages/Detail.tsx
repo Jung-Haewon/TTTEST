@@ -32,7 +32,7 @@ function Detail({ title }: { title: string }) {
 
   const handleDelete = async () => {
     try {
-      const deleteResponse = await axios.delete(`http://localhost:8080/api/deletepost`, {
+      const deleteResponse = await axios.delete(`http://54.234.229.182:8080/api/deletepost`, {
         data: { id: postId },
       });
 
