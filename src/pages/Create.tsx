@@ -69,6 +69,9 @@ function Create({ title }: { title: string }) {
         window.history.replaceState(null, '', '/');
         window.location.href = '/';
       }
+      else {
+        toast.success(createResponse.data);
+      }
     } catch (err) {
       console.log(err);
     }
