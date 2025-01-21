@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 
 function Detail({ title }: { title: string }) {
-  const postId = useParams().postId;
+  const postId = useParams().id;
   const [postDetail, setPostDetail] = useState<PostType>();
 
   useEffect(() => {
