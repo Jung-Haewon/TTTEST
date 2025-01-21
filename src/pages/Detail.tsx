@@ -71,10 +71,8 @@ function Detail({ title }: { title: string }) {
         ) : (
           <p>게시글 데이터를 불러오지 못했습니다.</p>
         )}
-        <div>
-          <MotionButton onClick={handleDelete}>삭제하기</MotionButton>
-          <MotionButton onClick={handleHomeClick}>돌아가기</MotionButton>
-        </div>
+        <MotionButton onClick={handleDelete}>삭제하기</MotionButton>
+        <MotionButton onClick={handleHomeClick}>돌아가기</MotionButton>
       </div>
     </>
   );
