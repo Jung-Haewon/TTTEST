@@ -27,10 +27,9 @@ function Detail({ title }: { title: string }) {
       } catch (err) {
         console.log(err);
       }
-
-      if (id) {
-        getPostDetail();
-      }
+    };
+    if (id) {
+      getPostDetail();
     };
   }, [id]);
 
