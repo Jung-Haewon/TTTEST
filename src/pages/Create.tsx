@@ -63,7 +63,7 @@ function Create({ title }: { title: string }) {
         }
       });
 
-      if (createResponse.data === 'create post') {
+      if (createResponse.data === 'create Post') {
         toast.success('게시글 작성이 성공했습니다.');
         // 히스토리 교체 및 페이지 리디렉션
         window.history.replaceState(null, '', '/');
