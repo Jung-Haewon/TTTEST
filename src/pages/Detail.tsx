@@ -9,22 +9,30 @@ import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 
 function Detail({ title }: { title: string }) {
-  const postId = useParams().id;
+  const { id } = useParams<{ id: string }>();
   const [postDetail, setPostDetail] = useState<PostType>();
 
   useEffect(() => {
+    if (!id) {
+      console.log('Post ID is not defined');
+      return;
+    }
+
     const getPostDetail = async () => {
       try {
-        const response = await axios.get(`http://54.234.229.182:8080/api/getpost/${postId}`);
-        
+        const response = await axios.get(`http://54.234.229.182:8080/api/getpost/${id}`);
+
+        setPostDetail(response.data);
         console.log(response);
       } catch (err) {
         console.log(err);
       }
-    };
 
-    getPostDetail();
-  });
+      if (id) {
+        getPostDetail();
+      }
+    };
+  }, [id]);
 
   const handleHomeClick = () => {
     window.location.href = '/';
@@ -33,7 +41,7 @@ function Detail({ title }: { title: string }) {
   const handleDelete = async () => {
     try {
       const deleteResponse = await axios.delete(`http://54.234.229.182:8080/api/deletepost`, {
-        data: { id: postId },
+        data: { id: id },
       });
 
       if (deleteResponse.data === true) {
