@@ -6,10 +6,12 @@ import axios from 'axios';
 import { del } from 'motion/react-client';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 function Detail({ title }: { title: string }) {
   const { postId } = useParams<{ postId: string }>();
+  const dispatch = useDispatch();
   const [postDetail, setPostDetail] = useState<PostType>();
 
   useEffect(() => {
@@ -22,9 +24,9 @@ function Detail({ title }: { title: string }) {
       } catch (err) {
         console.log(err);
       }
-
-      getPostDetail();
     };
+
+    getPostDetail();
   });
 
   const handleHomeClick = () => {
