@@ -7,6 +7,7 @@ import { del } from 'motion/react-client';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import { API } from '@/config';
 
 function Detail({ title }: { title: string }) {
   const { id } = useParams<{ id: string }>();
@@ -20,7 +21,7 @@ function Detail({ title }: { title: string }) {
 
     const getPostDetail = async () => {
       try {
-        const response = await axios.get(`http://54.234.229.182:8080/api/getpost/${id}`);
+        const response = await axios.get(API.GETPOST +  `/${id}`);
 
         setPostDetail(response.data);
         console.log(response);
@@ -39,7 +40,7 @@ function Detail({ title }: { title: string }) {
 
   const handleDelete = async () => {
     try {
-      const deleteResponse = await axios.delete(`http://54.234.229.182:8080/api/deletepost`, {
+      const deleteResponse = await axios.delete(API.DELETEPOST, {
         data: { id: id },
       });
 

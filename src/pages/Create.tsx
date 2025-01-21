@@ -6,6 +6,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useRef } from 'react';
 import toast from 'react-hot-toast';
+import { API } from '@/config';
 
 function Create({ title }: { title: string }) {
   const titleInput = useRef<HTMLInputElement>(null);
@@ -51,7 +52,7 @@ function Create({ title }: { title: string }) {
 
       console.log({ postTitle, postBody, writer, date });
 
-      const createResponse = await axios.post('http://54.234.229.182:8080/api/createpost', {
+      const createResponse = await axios.post(API.CREATEPOST, {
         postTitle,
         postBody,
         writer,

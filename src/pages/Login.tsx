@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useRef } from 'react';
 import Cookies from 'js-cookie';
 import toast from 'react-hot-toast';
+import { API } from '@/config';
 
 function Login({ title }: { title: string }) {
   const idInput = useRef<HTMLInputElement>(null);
@@ -18,7 +19,7 @@ function Login({ title }: { title: string }) {
         formData.append('username', idInput.current.value);
         formData.append('password', pwInput.current.value);
 
-        const response = await axios.post(`http://54.234.229.182:8080/api/login`, formData);
+        const response = await axios.post(API.LOGIN, formData);
 
         const responseHeader = response.headers.authorization;
         if (responseHeader) {

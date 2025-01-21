@@ -5,6 +5,7 @@ import InputWithLabel from '@/components/InputWithLabel';
 import axios from 'axios';
 import { useRef } from 'react';
 import toast from 'react-hot-toast';
+import { API } from '@/config';
 
 function Join({ title }: { title: string }) {
   const idInput = useRef<HTMLInputElement>(null);
@@ -19,7 +20,7 @@ function Join({ title }: { title: string }) {
           formData.append('username', idInput.current.value);
           formData.append('password', pwInput.current.value);
 
-          const response = await axios.post(`http://54.234.229.182:8080/api/join`, formData);
+          const response = await axios.post(API.JOIN, formData);
 
           if (response.data === 'exist') {
             toast.error('이미 존재하는 아이디 입니다.');

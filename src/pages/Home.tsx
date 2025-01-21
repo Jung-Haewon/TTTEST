@@ -9,6 +9,7 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { API } from '@/config';
 
 function Home({ title }: { title: string }) {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
@@ -23,7 +24,7 @@ function Home({ title }: { title: string }) {
         return;
       }
 
-      const response = await axios.get('http://54.234.229.182:8080/api/admin', {
+      const response = await axios.get(API.APIADMIN, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -47,7 +48,7 @@ function Home({ title }: { title: string }) {
 
   const checkConnect = async () => {
     try {
-      const response = await axios.get(`http://54.234.229.182:8080/api/test`);
+      const response = await axios.get(API.APITEST);
 
       if (response.data) {
         toast.success('서버에 접근 가능합니다.');
@@ -69,7 +70,7 @@ function Home({ title }: { title: string }) {
   useEffect(() => {
     const getPostList = async () => {
       try {
-        const response = await axios.get('http://54.234.229.182:8080/api/getallpost');
+        const response = await axios.get(API.GETALLPOST);
 
         setPostList(response.data);
       } catch (err) {
