@@ -17,6 +17,7 @@ function Detail({ title }: { title: string }) {
       try {
         const response = await axios.get(`http://54.234.229.182:8080/api/getpost/${postId}`);
 
+        setPostDetail(response.data);
         console.log(response);
       } catch (err) {
         console.log(err);
