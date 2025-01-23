@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import { API } from '@/config';
+import Cookies from 'js-cookie';
 
 function Detail({ title }: { title: string }) {
   const { id } = useParams<{ id: string }>();
@@ -71,8 +72,10 @@ function Detail({ title }: { title: string }) {
         ) : (
           <p>게시글 데이터를 불러오지 못했습니다.</p>
         )}
-        <MotionButton onClick={handleDelete}>삭제하기</MotionButton>
-        <MotionButton onClick={handleHomeClick}>돌아가기</MotionButton>
+        <div>
+          <MotionButton onClick={handleDelete}>삭제하기</MotionButton>
+          <MotionButton onClick={handleHomeClick}>돌아가기</MotionButton>
+        </div>
       </div>
     </>
   );

@@ -1,6 +1,8 @@
 const BASE_URL = import.meta.env.DEV
-? "http://localhost:8080/api"
-: "http://54.234.229.182:8080/api"
+? "http://localhost/api"
+: "http://54.234.229.182/api"
+
+// const BASE_URL = "http://localhost/api"
 
 export const API = {
     JOIN: `${BASE_URL}/join`,

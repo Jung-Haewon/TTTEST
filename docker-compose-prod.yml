@@ -1,0 +1,18 @@
+version: "1"
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        - REACT_APP_NAME=react-build
+        - REACT_APP_TITLE=react-build-title
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+    image: speedhaewon/nginx_react_test:latest
+      #npm run build시 환경 변수 참조가 안되어 args로 전달하고, Dockerfile에서 변수로 사용
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: always
