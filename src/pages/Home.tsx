@@ -85,7 +85,7 @@ function Home({ title }: { title: string }) {
     <>
       <title>{title}</title>
       <section className="flex flex-col justify-start items-center gap-10 mt-10 w-full h-auto">
-        <h1 className="text-4xl">홈 입니다. 자동화를 곁들인!</h1>
+        <h1 className="text-4xl">홈 입니다. 자동화를 곁들인!!</h1>
         <div className="flex flex-row gap-[50px]">
           <MotionButton onClick={checkLogin} size={1}>
             로그인 확인하기
