@@ -2,7 +2,7 @@ name: Frontend CD with Docker Hub
 on:
   push:
     branches:
-      - master # master에 push되었을 때 yml 실행
+      - main # master에 push되었을 때 yml 실행
 jobs:
   build:
     runs-on: ubuntu-latest
